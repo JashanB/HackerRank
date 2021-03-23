@@ -30,5 +30,28 @@
 
 // Complete the minimumBribes function below.
 function minimumBribes(q) {
-    console.log(q)
+  let norm = []
+  let bribeCount = 0;
+  let position = 0;
+  let j = 0;
+  let chaotic = false;
+  for (let i = 1; i <= q.length; i++) {
+      norm.push(i);
+  }
+  for (let i = 0; i < q.length; i++) {
+      //iterate through normal array, find value in q that corresponds
+      position = 0;        
+      j = i;
+      if (norm[i] !== q[j]) {
+          if ((q[j] - j) > 3) { chaotic = true };
+          do {
+              position += 1;
+              j += 1;
+          } while (norm[i] !== q[j] && j < q.length);
+          if (norm[i] === q[j]) {
+              bribeCount += position;
+          }
+      }
+  }
+  chaotic ? console.log("Too chaotic") : console.log(bribeCount);
 }
