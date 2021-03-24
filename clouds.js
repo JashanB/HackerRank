@@ -36,5 +36,15 @@
 
 // Complete the jumpingOnClouds function below.
 function jumpingOnClouds(c) {
-
+  let current = 0;
+  let jumps = 0;
+  do {
+      if (c[current + 2] === 0) { 
+          current += 2;
+      } else if (c[current + 1] === 0) {
+          current += 1;
+      }
+      jumps += 1;
+  } while (current < c.length - 1);
+  return jumps;
 }
