@@ -35,6 +35,16 @@
 // 3
 
 function sockMerchant(n, ar) {
-
-
+  let obj = {};
+  let pairs = 0;
+  for (let i = 0; i < ar.length; i++) {
+      obj[ar[i]] = [];
+  }
+  for (let i = 0; i < ar.length; i++) {
+      obj[ar[i]].push(ar[i])
+  }
+  for (const key of Object.keys(obj)) {
+      pairs += Math.floor(obj[key].length / 2);
+  }
+  return pairs;
 }
