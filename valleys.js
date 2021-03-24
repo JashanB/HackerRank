@@ -38,5 +38,15 @@
 // 1
 function countingValleys(steps, path) {
   // Write your code here
-
+  let score = 0;
+  let valleys = 0;
+  for (let i = 0; i < path.length; i++) {
+      if (path[i] === "U") {
+          score += 1;
+      } else {
+          if (score === 0) { valleys += 1};
+          score -= 1;
+      }
+  }
+  return valleys;
 }
